@@ -80,6 +80,9 @@ jobs:
           print("Files:", len(list(out.rglob("*"))))
           PY
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Upload publishable site
         uses: actions/upload-pages-artifact@v3
         with:
