@@ -1,0 +1,13 @@
+[package]
+name = "kuro-web"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+[dependencies]
+kuro-core = { path = "../../crates/kuro-core" }
+dioxus = { version = "=0.7.10", default-features = false, features = ["web", "minimal"] }
+serde_json.workspace = true
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+gloo-timers = { version = "0.3", features = ["futures"] }

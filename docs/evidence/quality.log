@@ -1,0 +1,53 @@
+    Checking kuro-core v0.1.0 (/workspace/Kuro/crates/kuro-core)
+    Checking kuro-web v0.1.0 (/workspace/Kuro/apps/web)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.34s
+   Compiling kuro-core v0.1.0 (/workspace/Kuro/crates/kuro-core)
+   Compiling kuro-web v0.1.0 (/workspace/Kuro/apps/web)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.03s
+     Running unittests src/lib.rs (target/debug/build/kuro-core/81935c53d6b69088/out/kuro_core-81935c53d6b69088)
+
+running 9 tests
+test tests::completion_does_not_grant_mastery ... ok
+test tests::backup_roundtrip ... ok
+test tests::duplicates_rejected ... ok
+test tests::dates_and_limits ... ok
+test tests::future_schema_rejected ... ok
+test tests::corrupt_backup_rejected ... ok
+test tests::hinted_not_independent ... ok
+test tests::review_intervals_and_failure ... ok
+test tests::oversized_export_cannot_produce_an_unrestorable_backup ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.80s
+
+     Running unittests src/main.rs (target/debug/build/kuro-web/aef1c8875e369a62/out/kuro_web-aef1c8875e369a62)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests kuro_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+  0.00s  INFO Building project...
+  1.30s  INFO Compiled [153/154]: kuro_core
+ 10.48s  INFO Compiled [154/154]: kuro-web
+ 10.50s  INFO Bundling app...
+ 10.54s  INFO Running wasm-bindgen...
+ 11.21s  INFO Copying asset (2/14): /workspace/Kuro/apps/web/public/fonts/LICENSE-OpenSans.txt
+ 11.21s  INFO Copying asset (1/14): /workspace/Kuro/apps/web/public/fonts/LICENSE-DejaVu.txt
+ 11.21s  INFO Copying asset (3/14): /workspace/Kuro/apps/web/public/fonts/LICENSE-Liberation.txt
+ 11.21s  INFO Copying asset (4/14): /workspace/Kuro/apps/web/public/fonts/OpenSans-Regular.ttf
+ 11.21s  INFO Copying asset (5/14): /workspace/Kuro/apps/web/public/fonts/LiberationMono-Regular.ttf
+ 11.21s  INFO Copying asset (6/14): /workspace/Kuro/apps/web/public/fonts/LiberationSerif-Italic.ttf
+ 11.21s  INFO Copying asset (7/14): /workspace/Kuro/apps/web/public/fonts/OpenSans-Semibold.ttf
+ 11.21s  INFO Copying asset (8/14): /workspace/Kuro/apps/web/public/observatory.svg
+ 11.21s  INFO Copying asset (9/14): /workspace/Kuro/apps/web/public/fonts/DejaVuSans.ttf
+ 11.21s  INFO Copying asset (10/14): /workspace/Kuro/apps/web/public/fonts/LiberationSerif-Regular.ttf
+ 11.21s  INFO Copying asset (11/14): /workspace/Kuro/target/dx/kuro-web/release/web/public/wasm/kuro-web_bg.wasm
+ 11.21s  INFO Copying asset (12/14): /workspace/Kuro/apps/web/public/style.css
+ 11.21s  INFO Copying asset (13/14): /workspace/Kuro/apps/web/public/storage.js
+ 11.21s  INFO Copying asset (14/14): /workspace/Kuro/target/dx/kuro-web/release/web/public/wasm/kuro-web.js
+ 11.21s  INFO Client build completed successfully! 🚀 path="/workspace/Kuro/target/dx/kuro-web/release/web/public"

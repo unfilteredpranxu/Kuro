@@ -1,0 +1,22 @@
+[workspace]
+members = ["crates/kuro-core", "apps/web"]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+version = "0.1.0"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.wasm-release]
+inherits = "release"
+opt-level = "s"
+lto = true
+codegen-units = 1

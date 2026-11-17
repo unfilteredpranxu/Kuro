@@ -1,0 +1,8 @@
+{
+  "archive": "kuro-web-0.1.0.zip",
+  "crc": "passed",
+  "launch": "passed",
+  "task_create": "passed",
+  "reload_persistence": "passed",
+  "page_errors": []
+}

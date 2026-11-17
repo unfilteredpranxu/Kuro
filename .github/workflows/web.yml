@@ -1,0 +1,29 @@
+name: Web verification
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Rust toolchain
+        run: rustup show
+      - name: Install Dioxus CLI
+        run: cargo install dioxus-cli --version 0.7.10 --locked
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - run: bash scripts/check.sh
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: web-build-and-browser-evidence
+          path: |
+            target/dx/kuro-web/release/web/public
+            playwright-report
+            test-results

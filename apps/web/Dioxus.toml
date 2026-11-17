@@ -1,0 +1,11 @@
+[application]
+name = "kuro"
+default_platform = "web"
+[web.app]
+title = "KURO // STUDY OS"
+[web.resource]
+style = ["/style.css"]
+script = []
+[web.resource.dev]
+style = []
+script = []

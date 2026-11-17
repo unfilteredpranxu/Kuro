@@ -1,0 +1,62 @@
+[
+  {
+    "module": "Syllabus",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Planner",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Tasks",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Library",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Notes",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Practice",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Revision",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Exams",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Music",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Analytics",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Settings",
+    "violations": [],
+    "overflow": false
+  },
+  {
+    "module": "Home",
+    "violations": [],
+    "overflow": false
+  }
+]
