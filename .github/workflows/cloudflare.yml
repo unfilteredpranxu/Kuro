@@ -1,0 +1,60 @@
+name: KURO Cloudflare download
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cloudflare-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout KURO
+        uses: actions/checkout@v4
+
+      - name: Install pinned Rust for WebAssembly
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.100.0
+          targets: wasm32-unknown-unknown
+
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install Dioxus CLI
+        run: |
+          curl -fsSL https://github.com/DioxusLabs/dioxus/releases/download/v0.7.10/dx-x86_64-unknown-linux-gnu.tar.gz -o /tmp/kuro-dx.tar.gz
+          tar -xzf /tmp/kuro-dx.tar.gz -C /tmp dx
+          sudo install -m 0755 /tmp/dx /usr/local/bin/dx
+          dx --version
+
+      - name: Compile browser website for Cloudflare root URL
+        run: dx build --platform web --package kuro-web --release --locked
+
+      - name: Validate static site
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          out = Path("target/dx/kuro-web/release/web/public")
+          required = ["index.html", "style.css", "storage.js", "observatory.svg"]
+          missing = [x for x in required if not (out/x).is_file()]
+          assert not missing, f"Missing site assets: {missing}"
+          html = (out/"index.html").read_text()
+          assert "/Kuro/" not in html, "Wrong GitHub Pages base path in Cloudflare build"
+          assert "wasm/" in html or "assets/" in html, "Missing WebAssembly loader"
+          assert any(out.rglob("*.wasm")), "Missing compiled WebAssembly"
+          (out/"_headers").write_text("/*.wasm\\n  Content-Type: application/wasm\\n")
+          print("Verified", sum(p.is_file() for p in out.rglob("*")), "static files")
+          PY
+
+      - name: Upload Cloudflare-ready website ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: KURO-Cloudflare-Pages-website
+          path: target/dx/kuro-web/release/web/public/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
